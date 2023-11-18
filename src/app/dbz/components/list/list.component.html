@@ -20,6 +20,9 @@
     <strong>Power: </strong>
     <span>{{ character.power }} </span>
   </div>
-  <button class="btn btn-outline-danger" (click)="onDeleteCharacter(character.id)">X</button>
+  <div>
+    <button class="btn btn-outline-danger" (click)="onDeleteCharacter(character.id)">Delete</button>
+    <button class="btn btn-outline-success ms-2" (click)="onUpdateCharacter(character.id)">Update</button>
+  </div>
   </li>
 </ul>

@@ -21,6 +21,10 @@ export class DbzService {
       power:7500
     }
   ]
+  public character:Character= {
+    name: '',
+    power: 0
+  }
 
   addCharacter( character:Character ):void {
     const newCharacter = {
@@ -34,4 +38,20 @@ export class DbzService {
     this.characters = this.characters.filter( character => character.id !== id )
   }
 
+  characterById( id:string ){
+    const character = this.characters.find( character => character.id == id );
+    this.character = {...character!}
+  }
+  updateCharacter( character:Character ):void{
+    this.characters = this.characters.map( c => {
+      if ( c.id == character.id) {
+        const charDB = {
+          ...c,
+          ...character
+        }
+        return charDB;
+      }
+      return c
+    })
+  }
 }

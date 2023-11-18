@@ -10,18 +10,22 @@ export class ListComponent {
 
   @Output()
   public onDeleteId:EventEmitter<string> = new EventEmitter();
+  @Output()
+  public onUpdateID:EventEmitter<string> = new EventEmitter();
 
   @Input()
   public characterList:Character[] = [
-    {
-      name:'Trunks',
-      power:10
-    }
+    //data del padre
   ]
 
   onDeleteCharacter( id?:string):void {
     if ( !id ) return;
     this.onDeleteId.emit( id )
+  }
+
+  onUpdateCharacter( id?:string ):void{
+    if ( !id ) return;
+    this.onUpdateID.emit(id);
   }
 
 }
